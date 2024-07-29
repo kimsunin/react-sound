@@ -1,5 +1,5 @@
 {
-  "name": "react-sound",
+  "name": "react-sound-controller",
   "version": "1.0.0",
   "main": "/dist/index.tsx",
   "scripts": {
