@@ -1,0 +1,17 @@
+{
+  "name": "react-sound",
+  "version": "1.0.0",
+  "main": "/dist/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["react","tsx","sound","node"],
+  "author": {
+    "name": "kimsunin",
+    "email": "suninkim10@gmail.com",
+    "url": "https://megadev.me"
+  },
+  "license": "MIT",
+  "description": "react sound controller",
+  "homepage": ""
+}
