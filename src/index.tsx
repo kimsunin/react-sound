@@ -1,7 +1,6 @@
 import * as React from "react";
-import {SoundContextType, SoundProviderProps} from "./types";
 
-function useStickyState(defaultValue: boolean, key: string) {
+function useStickyState(defaultValue: boolean, key: string): [boolean, React.Dispatch<React.SetStateAction<boolean>>] {
   const [value, setValue] = React.useState(() => {
     const stickyValue = window.localStorage.getItem(key);
     return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
@@ -12,6 +11,11 @@ function useStickyState(defaultValue: boolean, key: string) {
   return [value, setValue];
 }
 
+interface SoundContextType {
+  sound: boolean;
+  setSound: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const SoundContext = React.createContext<SoundContextType | undefined>(undefined);
 
 function useSound(): SoundContextType {
@@ -20,6 +24,11 @@ function useSound(): SoundContextType {
     throw new Error("useSound must be used within a SoundProvider");
   }
   return context;
+}
+
+interface SoundProviderProps {
+  children: React.ReactNode;
+  initialSound?: boolean;
 }
 
 function SoundProvider({ children, initialSound = true }: SoundProviderProps): JSX.Element | null {
@@ -41,4 +50,4 @@ function SoundProvider({ children, initialSound = true }: SoundProviderProps): J
   );
 }
 
-export {useSound, SoundProvider}
+export { SoundProvider, useSound };

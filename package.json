@@ -1,8 +1,13 @@
 {
   "name": "react-sound-controller",
-  "version": "1.0.0",
-  "main": "/dist/index.tsx",
+  "version": "1.0.6",
+  "main": "/dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["react","tsx","sound","node"],
