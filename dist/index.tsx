@@ -14,7 +14,7 @@ function useStickyState(defaultValue: boolean, key: string) {
 
 const SoundContext = React.createContext<SoundContextType | undefined>(undefined);
 
-function useSound() {
+function useSound(): SoundContextType {
   const context = React.useContext(SoundContext);
   if (context === undefined) {
     throw new Error("useSound must be used within a SoundProvider");
@@ -22,7 +22,7 @@ function useSound() {
   return context;
 }
 
-function SoundProvider({children, initialSound = true}: SoundProviderProps) {
+function SoundProvider({ children, initialSound = true }: SoundProviderProps): JSX.Element | null {
   const [sound, setSound] = useStickyState(initialSound, "sound");
   const [isMount, setMount] = React.useState(false);
 
@@ -35,10 +35,10 @@ function SoundProvider({children, initialSound = true}: SoundProviderProps) {
   }
 
   return (
-    <SoundContext.Provider value={{sound, setSound}}>
+    <SoundContext.Provider value={{ sound, setSound }}>
       {children}
     </SoundContext.Provider>
   );
 }
 
-export { SoundProvider, useSound };
+export {useSound, SoundProvider}
